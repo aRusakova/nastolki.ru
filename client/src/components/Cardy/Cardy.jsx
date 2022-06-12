@@ -15,6 +15,7 @@ function Cardy({ title, place, date, id, owner }) {
   }
 
   const allplayers = useSelector(state => state.allPlayersReducer);
+
   useMemo(() => allplayers?.find(el => el.id === id), [allplayers])
 
   useEffect(() => {
@@ -23,10 +24,10 @@ function Cardy({ title, place, date, id, owner }) {
 
 
   function formatDate(date) {
-    const day = date.slice(8, 10);
-    const month = date.slice(5, 7);
-    const year = date.slice(0, 4);
-    const time = date.slice(11);
+    const day = date?.slice(8, 10);
+    const month = date?.slice(5, 7);
+    const year = date?.slice(0, 4);
+    const time = date?.slice(11);
     return `${day}/${month}/${year} ${time}`;
   }
 
